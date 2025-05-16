@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de HQs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <div class="main-content-wrapper">
+            <main class="content">
+                <div class="hq-grid" id="hq-list">
+                    </div>
+                <div class="hq-titles" id="hq-titles-list">
+                    </div>
+            </main>
+        </div>
+        <aside class="sidebar">
+            <button id="adicionar-hq">Adicionar</button>
+            <div class="lists-filter">
+                <h2>Lists</h2>
+                <input type="text" id="pesquisar-titulo" placeholder="Pesquisar título...">
+                <div class="ordenar-por">
+                    <span>Ordenar por:</span>
+                    <select id="ordenacao">
+                        <option value="padrao">Padrão</option>
+                        <option value="titulo">Título</option>
+                        <option value="nota">Nota</option>
+                    </select>
+                </div>
+                <div class="status-filter">
+                    <button class="filter-button active" data-status="completed">Completed</button>
+                    <button class="filter-button" data-status="reading">Reading</button>
+                    <button class="filter-button" data-status="paused">Paused</button>
+                    <button class="filter-button" data-status="plan-to-read">Plan to Read</button>
+                    <button class="filter-button" data-status="dropped">Dropped</button>
+                </div>
+            </div>
+        </aside>
+        <div id="modal-adicionar" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Adicionar Nova HQ</h2>
+                <form id="form-adicionar-hq">
+                    <label for="titulo">Nome da HQ:</label>
+                    <input type="text" id="titulo" required><br><br>
+
+                    <label for="status">Status:</label>
+                    <select id="status">
+                        <option value="completed">Completed</option>
+                        <option value="reading">Reading</option>
+                        <option value="plan-to-read">Plan to Read</option>
+                        <option value="dropped">Dropped</option>
+                        <option value="paused">Paused</option>
+                    </select><br><br>
+
+                    <label for="nota">Nota (0-10):</label>
+                    <input type="text" id="nota"><br><br>
+
+                    <label for="capitulos-lidos">Capítulos Lidos:</label>
+                    <input type="number" id="capitulos-lidos" min="0" value="0"><br><br>
+
+                    <label for="total-capitulos">Total de Capítulos:</label>
+                    <input type="text" id="total-capitulos"><br><br>
+
+                    <label for="link-capa">Link da Capa:</label>
+                    <input type="url" id="link-capa"><br><br>
+
+                    <button type="submit">Adicionar HQ</button>
+                    <button type="button" class="cancel-button" id="cancelar-adicionar">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
