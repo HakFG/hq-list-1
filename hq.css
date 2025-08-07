@@ -1,0 +1,487 @@
+/* Estilização da aba de Lists (geral) */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte mais moderna e legível */
+    margin: 0;
+    background-color: #0c0f1b; /* Fundo azul marinho escuro, quase preto */
+    color: #e0e0e0; /* Cor do texto clara */
+    display: flex;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+}
+
+/* Sidebar Esquerda */
+.sidebar {
+    width: 270px;
+    background-color: #1a1e2a; /* Azul escuro um pouco mais claro que o fundo */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* Sombra sutil para profundidade */
+}
+
+/* Botão Adicionar */
+.sidebar button#add-hq-btn {
+    background-color: #7b4397; /* Roxo profundo (remete à Marvel/DC) */
+    color: #ffffff; /* Texto branco */
+    border: none;
+    padding: 12px 15px; /* Aumentado o padding */
+    border-radius: 8px; /* Borda mais arredondada */
+    cursor: pointer;
+    margin-bottom: 25px; /* Aumentado o espaçamento */
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em; /* Fonte um pouco maior */
+}
+
+.sidebar button#add-hq-btn:hover {
+    background-color: #5d2e72; /* Roxo mais escuro no hover */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
+
+.sidebar h2 {
+    color: #4CAF50; /* Verde vibrante para títulos da sidebar */
+    margin-top: 0;
+    margin-bottom: 15px; /* Ajuste de espaçamento */
+    font-size: 1.4em; /* Título maior */
+    text-transform: uppercase; /* Deixa em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+/* Barra de Pesquisa */
+.search-container {
+    display: flex;
+    margin-bottom: 20px; /* Ajuste de espaçamento */
+    gap: 8px; /* Aumentado o gap */
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 7px; /* Aumentado o padding */
+    border: 1px solid #3d4763; /* Borda sutil */
+    background-color: #21293a; /* Fundo um pouco mais claro que a sidebar */
+    color: #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 0.90em;
+}
+
+.search-container input::placeholder {
+    color: #9ab0da; /* Cor do placeholder mais suave */
+}
+
+.search-container button {
+    background-color: #5a8be0; /* Azul médio para o botão de pesquisa */
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px; /* Aumentado o padding */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button:hover {
+    background-color: #426bb3; /* Azul mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+/* Opções de Ordenação */
+.sort-options {
+    margin-top: 25px; /* Aumentado o espaçamento */
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.sort-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1em; /* Fonte um pouco maior */
+    color: #4CAF50; /* Verde vibrante */
+    font-weight: bold;
+}
+
+.sort-options select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3d4763;
+    background-color: #21293a;
+    color: #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    appearance: none; /* Remove o estilo padrão do select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M287%2C197.3L159.2%2C69.5c-7.8-7.8-20.5-7.8-28.3%2C0L5.4%2C197.3c-7.8%2C7.8-7.8%2C20.5%2C0%2C28.3s20.5%2C7.8%2C28.3%2C0L145%2C101.4l111.4%2C111.4c7.8%2C7.8%2C20.5%2C7.8%2C28.3%2C0C294.9%2C217.8%2C294.9%2C205.1%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E'); /* Ícone de seta personalizado */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+
+/* Filtros de Lista */
+.list-filters {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.list-filters li {
+    margin-bottom: 12px; /* Aumentado o espaçamento */
+}
+
+.list-filters a {
+    display: block;
+    color: #c9d6f0; /* Azul claro para os links */
+    text-decoration: none;
+    padding: 10px 15px; /* Aumentado o padding */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.list-filters a:hover {
+    background-color: #21293a; /* Fundo mais escuro no hover */
+    color: #5a8be0; /* Azul médio no hover */
+}
+
+.list-filters a.active {
+    background-color: #5a8be0; /* Azul médio para o filtro ativo */
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Sombra interna para destaque */
+}
+
+/* Conteúdo Principal (Lista de HQ's) */
+.hq-list {
+    flex-grow: 1;
+    padding: 30px; /* Aumentado o padding */
+    box-sizing: border-box;
+    margin-left: 270px;
+}
+
+.status-group {
+    margin-bottom: 40px; /* Aumentado o espaçamento */
+}
+
+.status-group h2 {
+    color: #4CAF50; /* Verde vibrante para títulos dos grupos */
+    border-bottom: 2px solid #3d4763; /* Borda mais definida */
+    padding-bottom: 10px; /* Aumentado o padding */
+    margin-bottom: 30px; /* Aumentado o espaçamento */
+    font-size: 1.8em; /* Título maior */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.hq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Minmax ajustado para cards um pouco maiores */
+    gap: 30px; /* Aumentado o gap */
+    padding-left: 0; /* Removido padding extra, confiando no padding do .hq-list */
+}
+
+/* Estilo do Card Individual da HQ (inclui nota e capítulos) */
+.hq-card {
+    background-color: #1a1e2a; /* Cor do card um pouco mais clara que o fundo do corpo */
+    border-radius: 10px; /* Borda mais arredondada */
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra mais proeminente */
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border: 1px solid #3d4763; /* Borda sutil para definir o card */
+}
+
+.hq-card:hover {
+    transform: translateY(-8px); /* Efeito de elevação mais pronunciado */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.hq-card img {
+    width: 100%;
+    height: 280px; /* Altura fixa para as capas um pouco maior */
+    object-fit: cover;
+    border-bottom: 1px solid #3d4763; /* Borda sutil */
+}
+
+.hq-card .info-overlay {
+    position: absolute;
+    top: 10px; /* Posição da nota */
+    right: 10px;
+    background-color: #e53935; /* Vermelho vibrante (clássico DC/Marvel) */
+    color: #fff;
+    padding: 5px 10px; /* Aumentado o padding */
+    border-radius: 8px; /* Mais arredondado */
+    font-size: 1em; /* Fonte um pouco maior */
+    font-weight: bold;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hq-card .chapters-overlay {
+    position: absolute;
+    top: 10px; /* Posição dos capítulos */
+    left: 10px;
+    background-color: #1976d2; /* Azul para capítulos */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hq-card h3 {
+    font-size: 1.2em; /* Título um pouco maior */
+    margin: 15px 10px 10px; /* Ajuste de margem */
+    color: #ffffff; /* Título branco puro */
+    height: 50px; /* Altura fixa para o título um pouco maior */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    flex-grow: 1;
+    font-weight: 600; /* Um pouco mais encorpado */
+}
+
+.hq-card .chapters-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Aumentado o padding */
+    background-color: #21293a; /* Cor de fundo dos controles */
+    border-top: 1px solid #3d4763;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.hq-card .chapters-controls button {
+    background-color: #4CAF50; /* Verde para os botões de capítulo */
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Aumentado o padding */
+    border-radius: 6px; /* Mais arredondado */
+    cursor: pointer;
+    font-size: 1.1em; /* Ícone um pouco maior */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hq-card .chapters-controls button:hover {
+    background-color: #388e3c; /* Verde mais escuro no hover */
+    transform: translateY(-1px);
+}
+
+.hq-card .chapters-controls span {
+    font-size: 1.1em; /* Tamanho da fonte dos capítulos */
+    color: #ffffff;
+    min-width: 45px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botões de Opções (Editar e Remover) */
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #21293a; /* Mesma cor dos controles de capítulo */
+    border-top: 1px solid #3d4763; /* Borda superior */
+    gap: 8px; /* Espaçamento entre os botões */
+}
+
+.options-button {
+    background-color: #00bcd4; /* Azul ciano para editar (remete a energia) */
+    color: #1a1e2a; /* Cor de texto mais escura para contraste */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1; /* Para que ocupem espaço igual */
+}
+
+.options-button:hover {
+    background-color: #008ba3;
+    transform: translateY(-1px);
+}
+
+.options-button i {
+    pointer-events: none;
+}
+
+/* Botão Remover */
+.remove-button {
+    background-color: #ff5252; /* Vermelho vibrante para remover */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1;
+}
+
+.remove-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+/* Estilos para o Modal (Adicionar e Editar) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro para o modal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+}
+
+.modal-content {
+    background-color: #21293a; /* Fundo do modal mais escuro */
+    margin: auto;
+    padding: 30px; /* Aumentado o padding */
+    border: 1px solid #3d4763;
+    width: 90%;
+    max-width: 550px; /* Aumentado a largura máxima */
+    border-radius: 12px; /* Mais arredondado */
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra mais forte */
+    color: #e0e0e0;
+}
+
+.modal-content h2 {
+    color: #4CAF50; /* Verde vibrante para o título do modal */
+    margin-top: 0;
+    margin-bottom: 25px; /* Ajuste de espaçamento */
+    text-align: center;
+    font-size: 1.6em; /* Título maior */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 10px; /* Aumentado o espaçamento */
+    color: #c9d6f0; /* Azul claro para os rótulos */
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content select {
+    width: calc(100% - 20px);
+    padding: 12px; /* Aumentado o padding */
+    margin-bottom: 20px; /* Aumentado o espaçamento */
+    border: 1px solid #3d4763;
+    background-color: #2a3345; /* Fundo dos campos de input */
+    color: #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.modal-content button[type="submit"] {
+    background-color: #7b4397; /* Roxo profundo */
+    color: #ffffff;
+    border: none;
+    padding: 14px 20px; /* Aumentado o padding */
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1em;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #5d2e72;
+    transform: translateY(-2px);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Aumentado o gap */
+    margin-top: 25px; /* Aumentado o espaçamento */
+}
+
+.modal-buttons button {
+    flex-grow: 1;
+    padding: 12px 15px; /* Aumentado o padding */
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+}
+
+.modal-buttons button[type="submit"] {
+    background-color: #00bcd4; /* Azul ciano */
+    color: #1a1e2a;
+}
+
+.modal-buttons button[type="submit"]:hover {
+    background-color: #008ba3;
+    transform: translateY(-2px);
+}
+
+.modal-buttons button#cancel-edit-button {
+    background-color: #5d6d7e; /* Cinza azulado para cancelar */
+    color: white;
+}
+
+.modal-buttons button#cancel-edit-button:hover {
+    background-color: #4a545f;
+    transform: translateY(-2px);
+}
+
+.close-button {
+    color: #c9d6f0; /* Azul claro para o 'x' */
+    font-size: 32px; /* 'x' um pouco maior */
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px; /* Posição ajustada */
+    right: 20px; /* Posição ajustada */
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #ffffff; /* Branco puro no hover */
+    text-decoration: none;
+}
