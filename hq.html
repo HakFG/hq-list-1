@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de HQ's</title>
+    <link rel="stylesheet" href="hq.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <button id="add-hq-btn">Adicionar HQ</button>
+            <h2>Listas</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Pesquisar título ou #hashtag...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sort-options">
+                <label for="sort-by">Ordenar por:</label>
+                <select id="sort-by">
+                    <option value="default">Padrão</option>
+                    <option value="score-desc">Nota (Maior para Menor)</option>
+                    <option value="score-asc">Nota (Menor para Maior)</option>
+                    <option value="title-asc">Título (A-Z)</option>
+                    <option value="title-desc">Título (Z-A)</option>
+                </select>
+            </div>
+
+            <h2>Editoras</h2>
+            <ul class="publisher-filters list-filters">
+                <li><a href="#" data-publisher="all" class="active">Todas Editoras</a></li>
+                <li><a href="#" data-publisher="marvel">Marvel</a></li>
+                <li><a href="#" data-publisher="dc">DC</a></li>
+                <li><a href="#" data-publisher="outros">Outros</a></li>
+            </ul>
+
+            <h2>Status</h2>
+            <ul class="list-filters status-filters">
+                <li><a href="#" data-status="all" class="active">Todas</a></li>
+                <li><a href="#" data-status="completed">Concluídas</a></li>
+                <li><a href="#" data-status="watching">Lendo</a></li>
+                <li><a href="#" data-status="paused">Pausadas</a></li>
+                <li><a href="#" data-status="plan-to-watch">Planejo Ler</a></li>
+                <li><a href="#" data-status="dropped">Abandonadas</a></li>
+                <li><a href="#" data-status="upcoming">Futuras</a></li>
+            </ul>
+        </aside>
+        <main class="hq-list">
+            <section class="status-group" data-status="watching">
+                <h2>Lendo</h2>
+                <div class="hq-grid">
+                    </div>
+            </section>
+            <section class="status-group" data-status="completed">
+                <h2>Concluídas</h2>
+                <div class="hq-grid"></div>
+            </section>
+            <section class="status-group" data-status="plan-to-watch">
+                <h2>Planejo Ler</h2>
+                <div class="hq-grid"></div>
+            </section>
+            <section class="status-group" data-status="paused">
+                <h2>Pausadas</h2>
+                <div class="hq-grid"></div>
+            </section>
+            <section class="status-group" data-status="dropped">
+                <h2>Abandonadas</h2>
+                <div class="hq-grid"></div>
+            </section>
+            <section class="status-group" data-status="upcoming">
+                <h2>Futuras</h2>
+                <div class="hq-grid"></div>
+            </section>
+        </main>
+
+        <div id="add-hq-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Adicionar Nova HQ</h2>
+                <form id="add-hq-form">
+                    <label for="hq-name">Título:</label>
+                    <input type="text" id="hq-name" required>
+
+                    <label for="hq-cover-link">Link da Capa:</label>
+                    <input type="text" id="hq-cover-link">
+
+                    <label for="hq-publisher">Editora:</label>
+                    <select id="hq-publisher">
+                        <option value="marvel">Marvel</option>
+                        <option value="dc">DC</option>
+                        <option value="outros">Outros</option>
+                    </select>
+
+                    <label for="hq-status">Status:</label>
+                    <select id="hq-status">
+                        <option value="watching">Lendo</option>
+                        <option value="completed">Concluída</option>
+                        <option value="paused">Pausada</option>
+                        <option value="plan-to-watch">Planejo Ler</option>
+                        <option value="dropped">Abandonada</option>
+                        <option value="upcoming">Futura</option>
+                    </select>
+
+                    <label for="hq-score">Nota (0-10):</label>
+                    <input type="number" id="hq-score" min="0" max="10" step="0.1">
+
+                    <label for="hq-read-chapters">Capítulos Lidos:</label>
+                    <input type="number" id="hq-read-chapters" min="0" value="0">
+
+                    <label for="hq-total-chapters">Capítulos Totais:</label>
+                    <input type="number" id="hq-total-chapters" min="0" value="0">
+
+                    <label for="hq-hashtags">Hashtags (separadas por vírgula):</label>
+                    <input type="text" id="hq-hashtags" placeholder="#fantasia, #acao">
+
+                    <button type="submit">Adicionar HQ</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="edit-hq-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-edit-modal">&times;</span>
+                <h2>Editar HQ</h2>
+                <form id="edit-hq-form">
+                    <input type="hidden" id="edit-hq-id">
+                    <label for="edit-hq-name">Título:</label>
+                    <input type="text" id="edit-hq-name" required>
+
+                    <label for="edit-hq-cover-link">Link da Capa:</label>
+                    <input type="text" id="edit-hq-cover-link">
+
+                    <label for="edit-hq-publisher">Editora:</label>
+                    <select id="edit-hq-publisher">
+                        <option value="marvel">Marvel</option>
+                        <option value="dc">DC</option>
+                        <option value="outros">Outros</option>
+                    </select>
+
+                    <label for="edit-hq-status">Status:</label>
+                    <select id="edit-hq-status">
+                        <option value="watching">Lendo</option>
+                        <option value="completed">Concluída</option>
+                        <option value="paused">Pausada</option>
+                        <option value="plan-to-watch">Planejo Ler</option>
+                        <option value="dropped">Abandonada</option>
+                        <option value="upcoming">Futura</option>
+                    </select>
+
+                    <label for="edit-hq-score">Nota (0-10):</label>
+                    <input type="number" id="edit-hq-score" min="0" max="10" step="0.1">
+
+                    <label for="edit-hq-read-chapters">Capítulos Lidos:</label>
+                    <input type="number" id="edit-hq-read-chapters" min="0">
+
+                    <label for="edit-hq-total-chapters">Capítulos Totais:</label>
+                    <input type="number" id="edit-hq-total-chapters" min="0">
+
+                    <label for="edit-hq-hashtags">Hashtags (separadas por vírgula):</label>
+                    <input type="text" id="edit-hq-hashtags" placeholder="#fantasia, #acao">
+
+                    <div class="modal-buttons">
+                        <button type="submit">Salvar Alterações</button>
+                        <button type="button" id="cancel-edit-button">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="hq.js"></script>
+</body>
+</html>
